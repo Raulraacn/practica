@@ -1,34 +1,4 @@
-<!--<h2>Productos</h2>
 
-<div *ngFor="let product of products">
-
-  <h3>
-    <a [title]="product.nombre + ' details'" [routerLink]="['/products', product.id]">
-      {{ product.nombre }}
-      <img src="{{product.img}}" alt="{{product.alt}}">
-
-    </a>
-  </h3>
-
-  <p *ngIf="product.descripcion">
-    Descripcion: {{ product.descripcion }}
-
-  </p>
-
-  <div>
-    <button (click)="share()">
-      Compartir
-    </button>
-  </div>
-  <app-product-alerts
-  [product]="product"
-  (notify)="onNotify()">
-</app-product-alerts>
-
-</div>
-En el panel de vista previa, coloque el cursor sobre el nombre de un producto para ver el
-   valor de la propiedad del nombre enlazado, que es el nombre del producto más la palabra "detalles".
-    El enlace de propiedad le [ ]permite usar el valor de la propiedad en una expresión de plantilla.-->
     <div class="container">
       <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -66,43 +36,28 @@ En el panel de vista previa, coloque el cursor sobre el nombre de un producto pa
         </button>
       </div>
       <br/>
+      <br/>
+      <h3 style="text-align: center;">Más populares</h3>
 
-      <h4>Más populares</h4>
-
-      <div class="card">
-
-        <div *ngFor="let product of products">
-
+      <div class="row">
+        <div class="card">
+           <div  *ngFor="let product of products">
             <div class="card-body">
-              <img src="{{product.img}}" class="card-img-top" >
+                <div class="card-header">
+                  <h3 style="text-align: center;">{{product.title}}</h3>
+              </div>
+                <img src="{{product.img}}" class="card-img-top" >
+                <div class="card-footer">
+                  <p style="font-size: medium;" class="card-text">{{product.description}}</p>
 
-              <h3>
-                {{ product.title }}
-            </h3>
-            <p class="card-text">{{product.description}}</p>
-
-          </div>
-
-
+                </div>
+             </div>
+           </div>
+         </div>
         </div>
-      </div>
 
 
     </div>
-    <!--
-    <div class="row">
-      <div class="col-md-4 p-4" *ngFor="let product of products">
-          <div class="card card-photo" >
-              <div class="card-header">
-                  {{product.title}}
-              </div>
-              <img src="{{product.img}}" class="card-img-top" width="150px" height="150px">
-              <div class="card-body">
-                  <p>{{product.description}}</p>
-              </div>
-          </div>
-      </div>
-  </div>
--->
+
 
 

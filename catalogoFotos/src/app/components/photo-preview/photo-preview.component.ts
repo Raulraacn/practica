@@ -10,7 +10,7 @@ import {Photo} from '../../interfaces/Photo'
   styleUrls: ['./photo-preview.component.css']
 })
 export class PhotoPreviewComponent implements OnInit {
-
+  //Variables
   id: string;
   photo: Photo;
 
@@ -21,10 +21,13 @@ export class PhotoPreviewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    //ActivatedRoute para obtener la ruta seleccionada y Router para redireccionar a otro lugar de la app
     this.activatedRoute.params.subscribe(params => {
+      //Guardamos el id de la url
       this.id = params['id'];
+      //Utilizamos el servicio de PhotoService getPhoto() para que nos muestre la foto a traves del id
       this.photoService.getPhoto(this.id)
-        .subscribe(
+        .subscribe(//Metodo subscribe retorna la respuesta y el error si lo hubiera
           res => {
             this.photo = res;
           },
@@ -38,6 +41,8 @@ export class PhotoPreviewComponent implements OnInit {
     this.photoService.deletePhoto(id)
       .subscribe(res => {
         console.log(res)
+        //Mostramos con window.alert() alert para que el usuario sepa que se ha borrado la foto con éxito
+        window.alert('Foto eliminada')
         this.router.navigate(['/photos']);
       })
   }
@@ -48,6 +53,9 @@ export class PhotoPreviewComponent implements OnInit {
     //Manejamos la respuesta del servidor
       .subscribe(res => {
         console.log(res);
+        //Mostramos con window.alert() para que el usuario sepa que se ha actualiazdo la foto con éxito
+        window.alert('Foto actualizada')
+        //Redireccionas a la ventana photos si se añade correctamente
         this.router.navigate(['/photos']);
       });
     return false;

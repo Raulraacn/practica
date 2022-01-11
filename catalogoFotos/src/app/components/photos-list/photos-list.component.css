@@ -3,5 +3,30 @@
 }
 
 .card-photo:hover {
-    border: 1px solid #333;
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
+
+.card .card-body img{
+
+  width: 330px;
+  height: 220px;
+}
+
+.card .card-body h3{
+
+  font-weight: 600;
+}
+
+.card .card-body p {
+
+  padding: 0 1rem;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.card .card-body a{
+   font-weight: 500;
+   text-decoration: none;
+   color: #f5f9fc;
+ }

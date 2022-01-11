@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <textarea rows="2" class="form-control" placeholder="Descripción de la Foto" required #description></textarea>
                 </div>
-
+                <!--Class d-one para que abra el explorador de archivos para añadir la imagen-->
                 <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
                 <img [src]="photoSelected || 'assets/no-image.png'" class="img-fluid" alt="Sin imagen"
                     (click)="photoInput.click()">

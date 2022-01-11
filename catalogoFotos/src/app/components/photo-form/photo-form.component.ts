@@ -21,6 +21,7 @@ export class PhotoFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  //Metodo para coger la foto seleccionada al hacer click se pasa un HtmlInputEvent
   onPhotoSelected(event: HtmlInputEvent): void {
     if (event.target.files && event.target.files[0]) {
       this.file = <File>event.target.files[0];
@@ -31,12 +32,16 @@ export class PhotoFormComponent implements OnInit {
     }
   }
 
+  //Metodo para actualizar la foto, se pasan como parametros el input y el textArea del html
   uploadPhoto(title: HTMLInputElement, description: HTMLTextAreaElement) {
     this.photoService
+    //Metodo createPhoto de Services photoService para coger los valores y despues mandarlos a la base de datos
       .createPhoto(title.value, description.value, this.file)
       .subscribe(
         res => {
           console.log(res);
+          //Mostramos con window.alert() alert para que el usuario sepa que se ha subido la foto con éxito
+          window.alert('Foto subida')
           this.router.navigate(['/photos'])
         },
         err => console.log(err)
